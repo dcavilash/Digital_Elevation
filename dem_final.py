@@ -6,8 +6,10 @@ from streamlit_folium import st_folium
 from io import BytesIO
 #      importing custom functions and api_key
 from custom_functions import display_map
-from dotenv import load_dotenv
+#from dotenv import load_dotenv                  # not required in streamlit cloud
 import os
+#load_dotenv()                                   # not required in streamlit cloud
+api_key=os.getenv("API_Key")
 
 
 
@@ -61,8 +63,6 @@ with st.sidebar:
     raster_type = raster_dataset_selection.split()[0]
     
     if st.button("Generate File"):
-        load_dotenv()
-        api_key=os.getenv("API_Key")
         url = f"https://portal.opentopography.org/API/globaldem?demtype={raster_type}&south={south_lat}&north={north_lat}&west={west_lon}&east={east_lon}&outputFormat={file_format}&API_Key={api_key}"
         
         try:
