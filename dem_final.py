@@ -59,7 +59,7 @@ with st.sidebar:
                                                                'GEDI_L3 (DTM 1000m)',
                                                                'GEBCOIceTopo (Global Bathymetry 500m)',
                                                                'GEBCOSubIceTopo (Global Bathymetry 500m)'), index=0)
-    # Map raster data source name to demtype for later use
+    # gets demtype from raster data source name for later use
     raster_type = raster_dataset_selection.split()[0]
     
     if st.button("Generate File"):
